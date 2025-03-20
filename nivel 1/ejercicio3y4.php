@@ -29,7 +29,7 @@ $n = 3.5;         // variable decimal N
 $m = 2.5;         // variable decimal M
 
 // Función para mostrar operaciones
-function mostrarOperaciones($num1, $num2, $tipo) {
+function mostrarOperaciones(int $num1, int $num2, string $tipo) {
     echo "<h3>Operaciones con variables $tipo:</h3>";
     echo "Valor 1: $num1 <br>";
     echo "Valor 2: $num2 <br>";

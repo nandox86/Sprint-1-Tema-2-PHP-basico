@@ -6,18 +6,18 @@
 // definición de variables de diferentes tipos
 define("EJERCICIO1", "Ejercicio 1");
 
-$numero_entero = 25;                // variable tipo integer
-$numero_decimal = 3.14;             // variable tipo double
+$numero_Entero = 25;                // variable tipo integer
+$numero_Decimal = 3.14;             // variable tipo double
 $texto = "Hola PHP";               // variable tipo string
-$es_verdadero = true;              // variable tipo boolean
+$es_Verdadero = true;              // variable tipo boolean
 
 // impresión 
 echo "<h1>" . EJERCICIO1 . "</h1>";
 
-echo "Número entero: " . $numero_entero . "<br>";
-echo "Número decimal: " . $numero_decimal . "<br>";
+echo "Número entero: " . $numero_Entero . "<br>";
+echo "Número decimal: " . $numero_Decimal . "<br>";
 echo "Texto: " . $texto . "<br>";
-echo "Booleano: " . ($es_verdadero ? 'true' : 'false') . "<br>";
+echo "Booleano: " . ($es_Verdadero ? 'true' : 'false') . "<br>";
 
 // definición de constante con nombre
 define("NOMBRE", "Nando");

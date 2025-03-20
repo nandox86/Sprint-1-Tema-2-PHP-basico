@@ -13,17 +13,22 @@ define("EJERCICIO5", "Ejericio 5");
 echo "<h1>" . EJERCICIO5 . "</h1>";
 
 /**
- * función para verificar el grado de un estudiante según su nota
+ * Función para verificar el grado de un estudiante según su nota
  * @param float $nota - Nota del estudiante (0-100)
  * @return string - Grado obtenido
  */
 function verificarGrado($nota) {
-    // Validar que la nota sea un número entre 0 y 100
-    if (!is_numeric($nota) || $nota < 0 || $nota > 100) {
-        return "Error: La nota debe ser un número entre 0 y 100";
+    // Validar que la nota sea un número
+    if (!is_numeric($nota)) {
+        return "Error: La nota debe ser un número";
     }
 
-    //verificar el grado usando condicionales
+    // Validar rango
+    if ($nota < 0 || $nota > 100) {
+        return "Error: La nota debe estar entre 0 y 100";
+    }
+
+    // Verificar el grado usando condicionales
     if ($nota >= 60) {
         return "Primera División";
     } elseif ($nota >= 45) {
@@ -35,15 +40,31 @@ function verificarGrado($nota) {
     }
 }
 
-//ejemplo o impresion
-echo "<h3>Verificación de Grados:</h3>";
+// Pruebas incluyendo casos umbral y errores
+echo "<h3>Verificación de Grados (Con casos umbral):</h3>";
 
-//array de notas para probar
-$notas_prueba = [85, 55, 40, 25, 101, -5];
+// Array con casos de prueba
+$casos_prueba = [
+    // Casos de error
+    -1,         // Menor que 0
+    101,        // Mayor que 100
+    "abc",      // No es número
+    
+    // Casos umbral
+    0,          // Mínimo posible
+    32.9,       // Casi tercera división
+    33,         // Inicio tercera división
+    44.9,       // Casi segunda división
+    45,         // Inicio segunda división
+    59.9,       // Casi primera división
+    60,         // Inicio primera división
+    100         // Máximo posible
+];
 
-//probar cada nota
-foreach ($notas_prueba as $nota) {
-    echo "Nota: $nota% - Resultado: " . verificarGrado($nota) . "<br>";
+// Probar cada caso
+foreach ($casos_prueba as $nota) {
+    echo "Nota: " . (is_numeric($nota) ? number_format($nota, 1) : $nota);
+    echo " - Resultado: " . verificarGrado($nota) . "<br>";
 }
 ?>
 
@@ -60,46 +81,21 @@ define("EJERCICIO6", "Ejercicio 6");
 echo "<h1>" . EJERCICIO6 . "</h1>";
 
 /**
- * función que determina si charlie muerde el dedo
- * @return bool - true si muerde false si no muerde
+ * Función que determina si Charlie muerde el dedo
+ * Usa rand(0,1) para una probabilidad del 50%
+ * @return bool - TRUE si muerde, FALSE si no muerde
  */
 function isBitten() {
-    //generar número aleatorio entre 1 y 100
-    $probabilidad = rand(1, 100);
-    
-    //retorna true si el número es <= 50 (50% de probabilidad)
-    return $probabilidad <= 50;
+    return rand(0, 1) === 1;
 }
 
-//función para mostrar resultados de manera más legible
-function mostrarResultado($intento) {
-    $resultado = isBitten();
-    echo "Intento $intento: Charlie " . 
-         ($resultado ? "te mordió" : "no te mordió") . 
+// Pruebas
+echo "<h3>Prueba de Mordidas de Charlie (Versión Simple):</h3>";
+
+// Realizar 10 pruebas
+for ($i = 1; $i <= 10; $i++) {
+    echo "Intento $i: Charlie " . 
+         (isBitten() ? "te mordió" : "no te mordió") . 
          " el dedo<br>";
 }
-
-//realizar pruebas múltiples para demostrar la probabilidad
-echo "<h3>Prueba de Mordidas de charlie:</h3>";
-
-//realizar 10 intentos
-for ($i = 1; $i <= 10; $i++) {
-    mostrarResultado($i);
-}
-
-//estadística simple
-$mordidas = 0;
-$intentos = 1000;
-
-//realizr prueba estadística con más intentos
-for ($i = 0; $i < $intentos; $i++) {
-    if (isBitten()) {
-        $mordidas++;
-    }
-}
-
-//mustrar estadísticas
-$porcentaje = ($mordidas / $intentos) * 100;
-echo "<br>Estadística de $intentos intentos:<br>";
-echo "Mordidas: $mordidas (" . number_format($porcentaje, 2) . "%)";
 ?>
