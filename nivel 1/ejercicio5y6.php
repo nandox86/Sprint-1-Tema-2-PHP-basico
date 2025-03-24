@@ -88,14 +88,12 @@ echo "<h1>" . EJERCICIO6 . "</h1>";
 function isBitten() {
     return rand(0, 1) === 1;
 }
-
 // Pruebas
 echo "<h3>Prueba de Mordidas de Charlie (Versión Simple):</h3>";
-
 // Realizar 10 pruebas
 for ($i = 1; $i <= 10; $i++) {
     echo "Intento $i: Charlie " . 
          (isBitten() ? "te mordió" : "no te mordió") . 
          " el dedo<br>";
 }
-?>
+ ?>
