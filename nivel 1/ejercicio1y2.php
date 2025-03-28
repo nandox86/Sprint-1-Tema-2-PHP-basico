@@ -19,10 +19,10 @@ echo "Número decimal: " . $numero_Decimal . "<br>";
 echo "Texto: " . $texto . "<br>";
 echo "Booleano: " . ($es_Verdadero ? 'true' : 'false') . "<br>";
 
-// definición de constante con nombre
+
 define("NOMBRE", "Nando");
 
-// mostrar nombre en formato título
+
 echo "<h1>" . NOMBRE . "</h1>";
 ?>
 
@@ -35,11 +35,11 @@ Imprime por pantalla el tamaño (longitud) de la variable.
 Imprime por pantalla el string en orden inverso de caracteres.
 Crea una nueva variable con el contenido “ Este es el curso de PHP ” e imprime por pantalla la concatenación de ambos strings.*/
 
-// definir variable con "hello, world!"
+
 define("EJERCICIO2", "Ejercicio 2");
 $saludo = "Hello, World!";
 
-// imprimir el string original
+
 echo "<h1>" . EJERCICIO2 . "</h1>";
 echo "String original: " . $saludo . "<br>";
 
